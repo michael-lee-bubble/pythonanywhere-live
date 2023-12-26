@@ -22,13 +22,6 @@
             margin-bottom: 10px;
         }
 
-        .input-container-with-right-margin {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-            margin-right: 10px;
-        }
-
         .header {
             font-size: 18px;
             font-weight: bold;
@@ -46,6 +39,8 @@
 
         input {
             width: 100px;
+            margin-right: 10px;
+            /* Add space to the right of the input */
         }
 
         button {
@@ -58,12 +53,12 @@
     <form>
         <div class="input-section">
             <div class="header">Text Manipulations</div>
-            <div class="input-container-with-right-margin">
+            <div class="input-container">
                 <label for="input_lower">Lowercase:</label>
                 <input type="text" id="input_lower">
                 <button type="button">Enter</button>
             </div>
-            <div class="input-container-with-right-margin">
+            <div class="input-container">
                 <label for="input_upper">Uppercase:</label>
                 <input type="text" id="input_upper">
                 <button type="button">Enter</button>
@@ -71,28 +66,28 @@
         </div>
         <div class="input-section">
             <div class="header">Math Calculations</div>
-            <div class="input-container-with-right-margin">
+            <div class="input-container">
                 <label for="input_add1">Add:</label>
                 <input type="text" id="input_add1">
                 <div class="math-sign"> + </div>
                 <input type="text" id="input_add2">
                 <button type="button">Enter</button>
             </div>
-            <div class="input-container-with-right-margin">
+            <div class="input-container">
                 <label for="input_subtract1">Subtract:</label>
                 <input type="text" id="input_subtract1">
                 <div class="math-sign"> - </div>
                 <input type="text" id="input_subtract2">
                 <button type="button">Enter</button>
             </div>
-            <div class="input-container-with-right-margin">
+            <div class="input-container">
                 <label for="input_multiply1">Multiply:</label>
                 <input type="text" id="input_multiply1">
                 <div class="math-sign"> * </div>
                 <input type="text" id="input_multiply2">
                 <button type="button">Enter</button>
             </div>
-            <div class="input-container-with-right-margin">
+            <div class="input-container">
                 <label for="input_divide1">Divide:</label>
                 <input type="text" id="input_divide1">
                 <div class="math-sign"> / </div>
