@@ -39,12 +39,17 @@
 
         input {
             width: 100px;
-            margin-right: 10px;
-            /* Add space to the right of the input */
+        }
+
+        .button-container {
+            display: flex;
+            align-items: center;
         }
 
         button {
             width: 80px;
+            margin-left: 10px;
+            /* Add space to the left of the button */
         }
     </style>
 </head>
@@ -56,12 +61,16 @@
             <div class="input-container">
                 <label for="input_lower">Lowercase:</label>
                 <input type="text" id="input_lower">
-                <button type="button">Enter</button>
+                <div class="button-container">
+                    <button type="button">Enter</button>
+                </div>
             </div>
             <div class="input-container">
                 <label for="input_upper">Uppercase:</label>
                 <input type="text" id="input_upper">
-                <button type="button">Enter</button>
+                <div class="button-container">
+                    <button type="button">Enter</button>
+                </div>
             </div>
         </div>
         <div class="input-section">
