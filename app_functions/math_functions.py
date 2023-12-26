@@ -30,4 +30,4 @@ if len(sys.argv) == 4:
     else:
         print("Invalid operation. Use 'add', 'subtract', 'multiply', or 'divide'.")
 else:
-    print("Usage: python math_functions.py <operation> <input_1> <input_2>")
+    print("Usage: <operation>(<input_1>, <input_2>)")

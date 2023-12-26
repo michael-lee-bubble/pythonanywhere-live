@@ -10,7 +10,7 @@ def index():
     math_result = None
 
     if request.method == 'POST':
-        if 'operation' in request.form:
+        if 'text_submit' in request.form:  # Check if text manipulation button was clicked
             operation = request.form.get('operation')
             text = request.form.get('text')
             if operation == 'lower':
@@ -18,18 +18,18 @@ def index():
             elif operation == 'upper':
                 text_result = uppercase(text)
 
-        elif 'operation_math' in request.form:
+        elif 'math_submit' in request.form:  # Check if math button was clicked
             operation_math = request.form.get('operation_math')
             input_math1 = float(request.form.get('input_math1'))
             input_math2 = float(request.form.get('input_math2'))
             if operation_math == 'add':
-                math_result = add(input_math1, input_math2)  # Use the imported math function
+                math_result = add(input_math1, input_math2)
             elif operation_math == 'subtract':
-                math_result = subtract(input_math1, input_math2)  # Use the imported math function
+                math_result = subtract(input_math1, input_math2)
             elif operation_math == 'multiply':
-                math_result = multiply(input_math1, input_math2)  # Use the imported math function
+                math_result = multiply(input_math1, input_math2)
             elif operation_math == 'divide':
-                math_result = divide(input_math1, input_math2)  # Use the imported math function
+                math_result = divide(input_math1, input_math2)
 
     return render_template('index.html', text_result=text_result, math_result=math_result)
 
