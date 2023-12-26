@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 from app_functions.text_manipulations import lowercase, uppercase
-from app_functions.math_functions import add, subtract, divide, multiply
+from app_functions.math_functions import add, subtract, divide, multiply  # Import math functions
 
 app = Flask(__name__)
 
@@ -23,13 +23,13 @@ def index():
             input_math1 = float(request.form.get('input_math1'))
             input_math2 = float(request.form.get('input_math2'))
             if operation_math == 'add':
-                math_result = add(input_math1, input_math2)
+                math_result = add(input_math1, input_math2)  # Use the imported math function
             elif operation_math == 'subtract':
-                math_result = subtract(input_math1, input_math2)
+                math_result = subtract(input_math1, input_math2)  # Use the imported math function
             elif operation_math == 'multiply':
-                math_result = multiply(input_math1, input_math2)
+                math_result = multiply(input_math1, input_math2)  # Use the imported math function
             elif operation_math == 'divide':
-                math_result = divide(input_math1, input_math2)
+                math_result = divide(input_math1, input_math2)  # Use the imported math function
 
     return render_template('index.html', text_result=text_result, math_result=math_result)
 
