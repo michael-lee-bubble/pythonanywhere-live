@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Sleek HTML Form</title>
+    <title>My First Python App</title>
     <style>
         body {
             display: flex;
@@ -12,10 +12,19 @@
             margin: 0;
         }
 
+        .input-section {
+            margin-bottom: 20px;
+        }
+
         .input-container {
             display: flex;
             align-items: center;
             margin-bottom: 10px;
+        }
+
+        .header {
+            font-size: 18px;
+            font-weight: bold;
         }
 
         label {
@@ -35,35 +44,41 @@
 
 <body>
     <form>
-        <div class="input-container">
-            <label for="input1">Input 1:</label>
-            <input type="text" id="input1">
-            <button type="button">Button 1</button>
+        <div class="input-section">
+            <div class="header">Text Manipulations</div>
+            <div class="input-container">
+                <label for="input_lower">Lowercase:</label>
+                <input type="text" id="input_lower">
+                <button type="button">Button 1</button>
+            </div>
+            <div class="input-container">
+                <label for="input_upper">Uppercase:</label>
+                <input type="text" id="input_upper">
+                <button type="button">Button 2</button>
+            </div>
         </div>
-        <div class="input-container">
-            <label for="input2">Input 2:</label>
-            <input type="text" id="input2">
-            <button type="button">Button 2</button>
-        </div>
-        <div class="input-container">
-            <label for="input3">Input 3:</label>
-            <input type="text" id="input3">
-            <button type="button">Button 3</button>
-        </div>
-        <div class="input-container">
-            <label for="input4">Input 4:</label>
-            <input type="text" id="input4">
-            <button type="button">Button 4</button>
-        </div>
-        <div class="input-container">
-            <label for="input5">Input 5:</label>
-            <input type="text" id="input5">
-            <button type="button">Button 5</button>
-        </div>
-        <div class="input-container">
-            <label for="input6">Input 6:</label>
-            <input type="text" id="input6">
-            <button type="button">Button 6</button>
+        <div class="input-section">
+            <div class="header">Math Calculations</div>
+            <div class="input-container">
+                <label for="input_add">Add:</label>
+                <input type="text" id="input_add">
+                <button type="button">Button 3</button>
+            </div>
+            <div class="input-container">
+                <label for="input_subtract">Subtract:</label>
+                <input type="text" id="input_subtract">
+                <button type="button">Button 4</button>
+            </div>
+            <div class="input-container">
+                <label for="input_multiply">Multiply:</label>
+                <input type="text" id="input_multiply">
+                <button type="button">Button 5</button>
+            </div>
+            <div class="input-container">
+                <label for="input_divide">Divide:</label>
+                <input type="text" id="input_divide">
+                <button type="button">Button 6</button>
+            </div>
         </div>
     </form>
 </body>
