@@ -51,57 +51,36 @@
             margin-left: 10px;
             /* Add space to the left of the button */
         }
+
+        .result-container {
+            margin-top: 10px;
+        }
     </style>
 </head>
 
 <body>
-    <form>
+    <form method="POST">
         <div class="input-section">
             <div class="header">Text Manipulations</div>
             <div class="input-container">
-                <label for="input_lower">Lowercase:</label>
-                <input type="text" id="input_lower">
+                <label for="operation">Operation:</label>
+                <select id="operation" name="operation">
+                    <option value="lower">Lowercase</option>
+                    <option value="upper">Uppercase</option>
+                </select>
+            </div>
+            <div class="input-container">
+                <label for="text">Text:</label>
+                <input type="text" id="text" name="text">
                 <div class="button-container">
-                    <button type="button">Enter</button>
+                    <button type="submit">Enter</button>
                 </div>
             </div>
-            <div class="input-container">
-                <label for="input_upper">Uppercase:</label>
-                <input type="text" id="input_upper">
-                <div class="button-container">
-                    <button type="button">Enter</button>
-                </div>
-            </div>
-        </div>
-        <div class="input-section">
-            <div class="header">Math Calculations</div>
-            <div class="input-container">
-                <label for="input_add1">Add:</label>
-                <input type="text" id="input_add1">
-                <div class="math-sign"> + </div>
-                <input type="text" id="input_add2">
-                <button type="button">Enter</button>
-            </div>
-            <div class="input-container">
-                <label for="input_subtract1">Subtract:</label>
-                <input type="text" id="input_subtract1">
-                <div class="math-sign"> - </div>
-                <input type="text" id="input_subtract2">
-                <button type="button">Enter</button>
-            </div>
-            <div class="input-container">
-                <label for="input_multiply1">Multiply:</label>
-                <input type="text" id="input_multiply1">
-                <div class="math-sign"> * </div>
-                <input type="text" id="input_multiply2">
-                <button type="button">Enter</button>
-            </div>
-            <div class="input-container">
-                <label for="input_divide1">Divide:</label>
-                <input type="text" id="input_divide1">
-                <div class="math-sign"> / </div>
-                <input type="text" id="input_divide2">
-                <button type="button">Enter</button>
+            <div class="result-container">
+                {% if result %}
+                <div class="header">Result</div>
+                <div>{{ result }}</div>
+                {% endif %}
             </div>
         </div>
     </form>
