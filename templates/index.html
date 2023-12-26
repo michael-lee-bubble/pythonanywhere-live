@@ -2,43 +2,58 @@
 <html>
 
 <head>
-    <title>Simple HTML Form</title>
+    <title>Sleek HTML Form</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 250px;
+            /* Adjust as needed */
+        }
+
+        input {
+            width: 150px;
+            /* Adjust as needed */
+        }
+
+        button {
+            width: 80px;
+            /* Adjust as needed */
+        }
+    </style>
 </head>
 
 <body>
     <form>
-        <label for="input1">Input 1:</label>
-        <input type="text" id="input1"><br>
-
-        <label for="input2">Input 2:</label>
-        <input type="text" id="input2"><br>
-
-        <label for="input3">Input 3:</label>
-        <input type="text" id="input3"><br>
-
-        <label for="input4">Input 4:</label>
-        <input type="text" id="input4"><br>
-
-        <label for="input5">Input 5:</label>
-        <input type="text" id="input5"><br>
-
-        <label for="input6">Input 6:</label>
-        <input type="text" id="input6"><br>
-
-        <button type="button" onclick="submitForm()">Button 1</button>
-        <button type="button" onclick="submitForm()">Button 2</button>
-        <button type="button" onclick="submitForm()">Button 3</button>
-        <button type="button" onclick="submitForm()">Button 4</button>
-        <button type="button" onclick="submitForm()">Button 5</button>
-        <button type="button" onclick="submitForm()">Button 6</button>
+        <label for="input1">Input 1: <input type="text" id="input1"></label>
+        <label for="input2">Input 2: <input type="text" id="input2"></label>
+        <label for="input3">Input 3: <input type="text" id="input3"></label>
+        <label for="input4">Input 4: <input type="text" id="input4"></label>
+        <label for="input5">Input 5: <input type="text" id="input5"></label>
+        <label for="input6">Input 6: <input type="text" id="input6"></label>
+        <button type="button">Button 1</button>
+        <button type="button">Button 2</button>
+        <button type="button">Button 3</button>
+        <button type="button">Button 4</button>
+        <button type="button">Button 5</button>
+        <button type="button">Button 6</button>
     </form>
-
-    <script>
-        function submitForm() {
-            // You can add JavaScript logic here to handle button clicks
-            alert("Button clicked!");
-        }
-    </script>
 </body>
 
 </html>
