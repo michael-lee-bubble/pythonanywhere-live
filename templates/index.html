@@ -12,47 +12,59 @@
             margin: 0;
         }
 
-        form {
+        .input-container {
             display: flex;
-            flex-direction: column;
             align-items: center;
-            gap: 10px;
+            margin-bottom: 10px;
         }
 
         label {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 250px;
-            /* Adjust as needed */
+            width: 100px;
+            margin-right: 10px;
         }
 
         input {
             width: 150px;
-            /* Adjust as needed */
         }
 
         button {
             width: 80px;
-            /* Adjust as needed */
         }
     </style>
 </head>
 
 <body>
     <form>
-        <label for="input1">Input 1: <input type="text" id="input1"></label>
-        <label for="input2">Input 2: <input type="text" id="input2"></label>
-        <label for="input3">Input 3: <input type="text" id="input3"></label>
-        <label for="input4">Input 4: <input type="text" id="input4"></label>
-        <label for="input5">Input 5: <input type="text" id="input5"></label>
-        <label for="input6">Input 6: <input type="text" id="input6"></label>
-        <button type="button">Button 1</button>
-        <button type="button">Button 2</button>
-        <button type="button">Button 3</button>
-        <button type="button">Button 4</button>
-        <button type="button">Button 5</button>
-        <button type="button">Button 6</button>
+        <div class="input-container">
+            <label for="input1">Input 1:</label>
+            <input type="text" id="input1">
+            <button type="button">Button 1</button>
+        </div>
+        <div class="input-container">
+            <label for="input2">Input 2:</label>
+            <input type="text" id="input2">
+            <button type="button">Button 2</button>
+        </div>
+        <div class="input-container">
+            <label for="input3">Input 3:</label>
+            <input type="text" id="input3">
+            <button type="button">Button 3</button>
+        </div>
+        <div class="input-container">
+            <label for="input4">Input 4:</label>
+            <input type="text" id="input4">
+            <button type="button">Button 4</button>
+        </div>
+        <div class="input-container">
+            <label for="input5">Input 5:</label>
+            <input type="text" id="input5">
+            <button type="button">Button 5</button>
+        </div>
+        <div class="input-container">
+            <label for="input6">Input 6:</label>
+            <input type="text" id="input6">
+            <button type="button">Button 6</button>
+        </div>
     </form>
 </body>
 
