@@ -77,9 +77,38 @@
                 </div>
             </div>
             <div class="result-container">
-                {% if result %}
+                {% if text_result %}
                 <div class="header">Result</div>
-                <div>{{ result }}</div>
+                <div>{{ text_result }}</div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="input-section">
+            <div class="header">Math Calculations</div>
+            <div class="input-container">
+                <label for="operation_math">Operation:</label>
+                <select id="operation_math" name="operation_math">
+                    <option value="add">Add</option>
+                    <option value="subtract">Subtract</option>
+                    <option value="multiply">Multiply</option>
+                    <option value="divide">Divide</option>
+                </select>
+            </div>
+            <div class="input-container">
+                <label for="input_math1">Input 1:</label>
+                <input type="text" id="input_math1" name="input_math1">
+            </div>
+            <div class="input-container">
+                <label for="input_math2">Input 2:</label>
+                <input type="text" id="input_math2" name="input_math2">
+                <div class="button-container">
+                    <button type="submit">Enter</button>
+                </div>
+            </div>
+            <div class="result-container">
+                {% if math_result %}
+                <div class="header">Result</div>
+                <div>{{ math_result }}</div>
                 {% endif %}
             </div>
         </div>
