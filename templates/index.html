@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>My First Python App</title>
+    <title>Michael's Sandbox</title>
     <style>
         body {
             display: flex;
@@ -60,10 +60,51 @@
         .result-container {
             margin-top: 10px;
         }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+        }
+
+        .header-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .header-menu {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header-menu li {
+            display: inline;
+            margin-left: 10px;
+        }
+
+        .header-menu a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 14px;
+        }
     </style>
 </head>
 
 <body>
+    <!-- Added header from header.html -->
+    <header>
+        <div class="header-title">Michael's Sandbox</div>
+        <ul class="header-menu">
+            <li><a href="#">About This App</a></li>
+            <li><a href="#">About Me</a></li>
+            <li><a href="#">GitHub</a></li>
+        </ul>
+    </header>
+
     <form method="POST">
         <!-- Text Manipulations Section -->
         <div class="input-section">
