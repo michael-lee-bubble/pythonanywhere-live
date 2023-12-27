@@ -4,12 +4,62 @@
 <head>
     <title>My First Python App</title>
     <style>
-        /* Your existing CSS styles */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .input-section {
+            margin-bottom: 20px;
+        }
+
+        .input-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .header {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        label {
+            width: 100px;
+            margin-right: 10px;
+        }
+
+        .math-sign {
+            width: 20px;
+            text-align: center;
+        }
+
+        input {
+            width: 100px;
+        }
+
+        .button-container {
+            display: flex;
+            align-items: center;
+        }
+
+        button {
+            width: 80px;
+            margin-left: 10px;
+        }
+
+        .result-container {
+            margin-top: 10px;
+        }
     </style>
 </head>
 
 <body>
     <form method="POST">
+        <!-- Text Manipulations Section -->
         <div class="input-section">
             <div class="header">Text Manipulations</div>
             <div class="input-container">
@@ -35,6 +85,8 @@
                 {% endif %}
             </div>
         </div>
+
+        <!-- Math Calculations Section -->
         <div class="input-section">
             <div class="header">Math Calculations</div>
             <div class="input-container">
