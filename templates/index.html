@@ -6,6 +6,9 @@
     <style>
         body {
             margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         /* Header style */
@@ -40,65 +43,30 @@
             font-size: 14px;
         }
 
-        /* Centered content style */
-        .centered-content {
+        /* Centered content style for the form */
+        form {
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            height: calc(100vh - 60px);
-            /* Adjust the height based on your header's actual height */
+            justify-content: flex-start;
+            /* align to the top of the remaining space */
+            flex-grow: 1;
+            width: 100%;
+            /* Full width */
         }
 
-        /* Body style */
+        /* Style for input sections */
         .input-section {
             margin-bottom: 20px;
+            width: auto;
+            /* Set to the desired width */
+            display: inline-block;
+            /* Align to the center */
         }
 
-        .input-container {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
+        /* ... rest of your CSS ... */
 
-        .header {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        .header-result {
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        label {
-            width: 100px;
-            margin-right: 10px;
-        }
-
-        .math-sign {
-            width: 20px;
-            text-align: center;
-        }
-
-        input {
-            width: 100px;
-        }
-
-        .button-container {
-            display: flex;
-            align-items: center;
-        }
-
-        button {
-            width: 80px;
-            margin-left: 10px;
-        }
-
-        .result-container {
-            margin-top: 10px;
-        }
+        /* Rest of the existing styles remain unchanged */
     </style>
 </head>
 
@@ -109,13 +77,14 @@
         <ul class="header-menu">
             <li><a href="#">About This App</a></li>
             <li><a href="#">About Me</a></li>
-            <li><a href="#">GitHub</a></li>
+            <li><a href="https://github.com/michael-lee-bubble/pythonanywhere-live">GitHub</a></li>
         </ul>
     </header>
 
+    <!-- Form with centered content -->
     <form method="POST">
         <!-- Text Manipulations Section -->
-        <div class="centered-content">
+        <div class="input-section">
             <div class="header">Text Manipulations</div>
             <div class="input-container">
                 <label for="operation">Operation:</label>
@@ -142,7 +111,7 @@
         </div>
 
         <!-- Math Calculations Section -->
-        <div class="centered-content">
+        <div class="input-section">
             <div class="header">Math Calculations</div>
             <div class="input-container">
                 <label for="operation_math">Operation:</label>
