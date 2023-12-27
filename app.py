@@ -11,27 +11,35 @@ def index():
     selected_text_operation = None
     selected_math_operation = None
 
+    # Check for existing session data (if you're using sessions to store previous state)
+    # If not using sessions, you can initialize these to default values or based on some other logic
+
     if request.method == 'POST':
-        if 'text_submit' in request.form:  # Check if text manipulation button was clicked
-            selected_text_operation = request.form.get('operation')
-            text = request.form.get('text')
+        # Text Manipulation Section
+        selected_text_operation = request.form.get('operation', selected_text_operation)
+        text = request.form.get('text', None)
+        if 'text_submit' in request.form:
             if selected_text_operation == 'lower':
                 text_result = lowercase(text)
             elif selected_text_operation == 'upper':
                 text_result = uppercase(text)
 
-        elif 'math_submit' in request.form:  # Check if math button was clicked
-            selected_math_operation = request.form.get('operation_math')
-            input_math1 = float(request.form.get('input_math1'))
-            input_math2 = float(request.form.get('input_math2'))
-            if selected_math_operation == 'add':
-                math_result = add(input_math1, input_math2)
-            elif selected_math_operation == 'subtract':
-                math_result = subtract(input_math1, input_math2)
-            elif selected_math_operation == 'multiply':
-                math_result = multiply(input_math1, input_math2)
-            elif selected_math_operation == 'divide':
-                math_result = divide(input_math1, input_math2)
+        # Math Calculation Section
+        selected_math_operation = request.form.get('operation_math', selected_math_operation)
+        input_math1 = request.form.get('input_math1', None)
+        input_math2 = request.form.get('input_math2', None)
+        if 'math_submit' in request.form:
+            if input_math1 and input_math2:  # Ensure that both inputs are provided
+                input_math1 = float(input_math1)
+                input_math2 = float(input_math2)
+                if selected_math_operation == 'add':
+                    math_result = add(input_math1, input_math2)
+                elif selected_math_operation == 'subtract':
+                    math_result = subtract(input_math1, input_math2)
+                elif selected_math_operation == 'multiply':
+                    math_result = multiply(input_math1, input_math2)
+                elif selected_math_operation == 'divide':
+                    math_result = divide(input_math1, input_math2)
 
     return render_template('index.html', 
                            text_result=text_result, 
