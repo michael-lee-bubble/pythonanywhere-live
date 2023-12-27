@@ -28,6 +28,11 @@
             margin-bottom: 20px;
         }
 
+        .header-result {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
         label {
             width: 100px;
             margin-right: 10px;
@@ -81,7 +86,7 @@
             </div>
             <div class="result-container">
                 {% if text_result %}
-                <div class="header">Result</div>
+                <div class="header-result">Result</div>
                 <div>{{ text_result }}</div>
                 {% endif %}
             </div>
@@ -114,7 +119,7 @@
             </div>
             <div class="result-container">
                 {% if math_result %}
-                <div class="header">Result</div>
+                <div class="header-result">Result</div>
                 <div>{{ math_result }}</div>
                 {% else %}
                 <div>No result to display</div>
