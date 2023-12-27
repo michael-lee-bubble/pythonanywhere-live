@@ -4,56 +4,7 @@
 <head>
     <title>My First Python App</title>
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .input-section {
-            margin-bottom: 20px;
-        }
-
-        .input-container {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .header {
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        label {
-            width: 100px;
-            margin-right: 10px;
-        }
-
-        .math-sign {
-            width: 20px;
-            text-align: center;
-        }
-
-        input {
-            width: 100px;
-        }
-
-        .button-container {
-            display: flex;
-            align-items: center;
-        }
-
-        button {
-            width: 80px;
-            margin-left: 10px;
-        }
-
-        .result-container {
-            margin-top: 10px;
-        }
+        /* Your existing CSS styles */
     </style>
 </head>
 
@@ -64,8 +15,8 @@
             <div class="input-container">
                 <label for="operation">Operation:</label>
                 <select id="operation" name="operation">
-                    <option value="lower">Lowercase</option>
-                    <option value="upper">Uppercase</option>
+                    <option value="lower" {% if selected_text_operation='lower' %}selected{% endif %}>Lowercase</option>
+                    <option value="upper" {% if selected_text_operation='upper' %}selected{% endif %}>Uppercase</option>
                 </select>
             </div>
             <div class="input-container">
@@ -79,8 +30,6 @@
                 {% if text_result %}
                 <div class="header">Result</div>
                 <div>{{ text_result }}</div>
-                {% else %}
-                <div>No result to display</div>
                 {% endif %}
             </div>
         </div>
@@ -89,10 +38,12 @@
             <div class="input-container">
                 <label for="operation_math">Operation:</label>
                 <select id="operation_math" name="operation_math">
-                    <option value="add">Add</option>
-                    <option value="subtract">Subtract</option>
-                    <option value="multiply">Multiply</option>
-                    <option value="divide">Divide</option>
+                    <option value="add" {% if selected_math_operation='add' %}selected{% endif %}>Add</option>
+                    <option value="subtract" {% if selected_math_operation='subtract' %}selected{% endif %}>Subtract
+                    </option>
+                    <option value="multiply" {% if selected_math_operation='multiply' %}selected{% endif %}>Multiply
+                    </option>
+                    <option value="divide" {% if selected_math_operation='divide' %}selected{% endif %}>Divide</option>
                 </select>
             </div>
             <div class="input-container">
@@ -111,11 +62,3 @@
                 <div class="header">Result</div>
                 <div>{{ math_result }}</div>
                 {% else %}
-                <div>No result to display</div>
-                {% endif %}
-            </div>
-        </div>
-    </form>
-</body>
-
-</html>
