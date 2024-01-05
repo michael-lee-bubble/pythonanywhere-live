@@ -45,9 +45,6 @@ def index():
                     session['math_result'] = divide(input_math1, input_math2)
             session['selected_math_operation'] = selected_math_operation
 
-        # Redirect to prevent form resubmission
-        return redirect(url_for('python_library'))
-
     # For a GET request, retrieve results and selections from the session
     text_result = session.get('text_result')
     math_result = session.get('math_result')
