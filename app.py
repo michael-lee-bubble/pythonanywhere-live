@@ -55,5 +55,15 @@ def index():
                            selected_text_operation=selected_text_operation,
                            selected_math_operation=selected_math_operation)
 
+@app.route('/python_library')
+def python_library():
+    # Add your implementation for the /python_library route here
+    return render_template('python_library.html')
+
+@app.route('/data_library')
+def data_library():
+    # Add your implementation for the /data_library route here
+    return render_template('data_library.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
