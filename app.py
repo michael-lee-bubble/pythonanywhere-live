@@ -46,7 +46,7 @@ def index():
             session['selected_math_operation'] = selected_math_operation
 
         # Redirect to prevent form resubmission
-        return redirect(url_for('python_library'))
+        return redirect(url_for('/python_library'))
 
     # For a GET request, retrieve results and selections from the session
     text_result = session.get('text_result')
