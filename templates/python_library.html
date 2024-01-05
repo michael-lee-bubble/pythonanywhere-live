@@ -48,6 +48,72 @@
             color: #fff;
             font-size: 14px;
         }
+
+        /* Centered content style for the form */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            /* align to the top of the remaining space */
+            flex-grow: 1;
+            width: 100%;
+            /* Full width */
+        }
+
+        /* Style for input sections */
+        .input-section {
+            margin-bottom: 20px;
+            width: auto;
+            /* Set to the desired width */
+            display: inline-block;
+            /* Align to the center */
+        }
+
+        .input-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .header {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .header-result {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        label {
+            width: 100px;
+            margin-right: 10px;
+        }
+
+        .math-sign {
+            width: 20px;
+            text-align: center;
+        }
+
+        input {
+            width: 100px;
+        }
+
+        .button-container {
+            display: flex;
+            align-items: center;
+        }
+
+        button {
+            width: 80px;
+            margin-left: 10px;
+        }
+
+        .result-container {
+            margin-top: 10px;
+        }
     </style>
 </head>
 
@@ -61,6 +127,71 @@
             <li><a href="https://github.com/michael-lee-bubble/pythonanywhere-live">GitHub</a></li>
         </ul>
     </header>
+
+    <!-- Form with centered content -->
+    <form method="POST">
+        <!-- Text Manipulations Section -->
+        <div class="input-section">
+            <div class="header">Text Manipulations</div>
+            <div class="input-container">
+                <label for="operation">Operation:</label>
+                <select id="operation" name="operation">
+                    <option value="lower" {% if selected_text_operation=='lower' %}selected{% endif %}>Lowercase
+                    </option>
+                    <option value="upper" {% if selected_text_operation=='upper' %}selected{% endif %}>Uppercase
+                    </option>
+                </select>
+            </div>
+            <div class="input-container">
+                <label for="text">Text:</label>
+                <input type="text" id="text" name="text">
+                <div class="button-container">
+                    <button type="submit" name="text_submit">Enter</button>
+                </div>
+            </div>
+            <div class="result-container">
+                {% if text_result %}
+                <div class="header-result">Result</div>
+                <div>{{ text_result }}</div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Math Calculations Section -->
+        <div class="input-section">
+            <div class="header">Math Calculations</div>
+            <div class="input-container">
+                <label for="operation_math">Operation:</label>
+                <select id="operation_math" name="operation_math">
+                    <option value="add" {% if selected_math_operation=='add' %}selected{% endif %}>Add</option>
+                    <option value="subtract" {% if selected_math_operation=='subtract' %}selected{% endif %}>Subtract
+                    </option>
+                    <option value="multiply" {% if selected_math_operation=='multiply' %}selected{% endif %}>Multiply
+                    </option>
+                    <option value="divide" {% if selected_math_operation=='divide' %}selected{% endif %}>Divide</option>
+                </select>
+            </div>
+            <div class="input-container">
+                <label for="input_math1">Input 1:</label>
+                <input type="number" id="input_math1" name="input_math1">
+            </div>
+            <div class="input-container">
+                <label for="input_math2">Input 2:</label>
+                <input type="number" id="input_math2" name="input_math2">
+                <div class="button-container">
+                    <button type="submit" name="math_submit">Enter</button>
+                </div>
+            </div>
+            <div class="result-container">
+                {% if math_result %}
+                <div class="header-result">Result</div>
+                <div>{{ math_result }}</div>
+                {% else %}
+                <div>No result to display</div>
+                {% endif %}
+            </div>
+        </div>
+    </form>
 </body>
 
 </html>

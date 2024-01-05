@@ -9,7 +9,12 @@ import os
 app = Flask(__name__)
 app.secret_key = os.environ.get('FLASK_SECRET_KEY', 'default-secret-key')
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('index')
+def python_library():
+    # Add your implementation for the /python_library route here
+    return render_template('index.html')
+
+@app.route('/python_library', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
         # Process Text Manipulation Form
@@ -41,7 +46,7 @@ def index():
             session['selected_math_operation'] = selected_math_operation
 
         # Redirect to prevent form resubmission
-        return redirect(url_for('index'))
+        return redirect(url_for('python_library'))
 
     # For a GET request, retrieve results and selections from the session
     text_result = session.get('text_result')
@@ -49,16 +54,11 @@ def index():
     selected_text_operation = session.get('selected_text_operation')
     selected_math_operation = session.get('selected_math_operation')
 
-    return render_template('index.html', 
+    return render_template('python_library.html', 
                            text_result=text_result, 
                            math_result=math_result,
                            selected_text_operation=selected_text_operation,
                            selected_math_operation=selected_math_operation)
-
-@app.route('/python_library')
-def python_library():
-    # Add your implementation for the /python_library route here
-    return render_template('python_library.html')
 
 @app.route('/data_library')
 def data_library():
