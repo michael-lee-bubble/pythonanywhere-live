@@ -9,9 +9,9 @@ import os
 app = Flask(__name__)
 app.secret_key = os.environ.get('FLASK_SECRET_KEY', 'default-secret-key')
 
-@app.route('index')
+@app.route('/')
 def python_library():
-    # Add your implementation for the /python_library route here
+    # This is the home page. 
     return render_template('index.html')
 
 @app.route('/python_library', methods=['GET', 'POST'])
