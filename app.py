@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session
-from app_functions.text_manipulations import lowercase, uppercase
-from app_functions.math_functions import add, subtract, divide, multiply
+from modules.text_manipulations import lowercase, uppercase
+from modules.math_functions import add, subtract, divide, multiply
 from dotenv import load_dotenv
 load_dotenv()  # This loads the variables from .env
 import os

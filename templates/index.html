@@ -3,6 +3,8 @@
 
 <head>
     <title>Michael's Sandbox</title>
+    <!-- Add Font Awesome CDN for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <style>
         body {
             margin: 0;
@@ -49,8 +51,8 @@
             font-size: 14px;
         }
         
-                /* Welcome section style */
-                .welcome-section {
+        /* Welcome section style */
+        .welcome-section {
             padding: 50px;
             text-align: center;
             background-color: #f2f2f2;
@@ -64,7 +66,7 @@
 
         .welcome-section p {
             font-size: 18px;
-            color: #666;
+            color: #667;
         }
 
         /* About me section style */
@@ -87,6 +89,20 @@
             font-size: 18px;
             color: #333;
         }
+
+        /* Style for social icons */
+        .social-icons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .social-icon {
+            display: inline-block;
+            text-decoration: none;
+            color: #333;
+            font-size: 24px;
+        }
     </style>
 </head>
 
@@ -100,19 +116,29 @@
             <li><a href="https://github.com/michael-lee-bubble/pythonanywhere-live">GitHub</a></li>
         </ul>
     </header>
+    
     <!-- Welcome Section -->
     <section class="welcome-section">
         <h1>Welcome to Michael's Sandbox</h1>
-        <p>This is a space where I explore and showcase my projects in Python and data science. Feel free to browse and discover!</p>
+        <p>This is a space where I explore and showcase my projects in Python and data science.</p>
+        <p>I develop features based on my day-to-day needs and build tools firsthand to make my work a little easier.</p>
+        <p>If you have any questions or suggestions, don't hesitate to reach out. Feel free to browse!</p>
     </section>
 
     <!-- About Me Section -->
     <section class="about-section">
-        <img src="placeholder-profile-pic.jpg" alt="Michael's Profile Picture" class="profile-picture">
+        <img src="../static/images/bubble_headshot.jpeg" alt="Michael's Profile Picture" class="profile-picture">
         <div class="bio">
             <h2>About Me</h2>
-            <p>Hi, I'm Michael. I'm passionate about coding, especially in Python. I love working with data and creating useful applications.</p>
-            <!-- Add more personal info here -->
+            <p>Hi there! I'm Michael Lee. Graduated from Yale with a major in Political Science and a minor in Chinese studies.</p>
+            <p>Currently, I'm a key member of the data team at <a href="https://bubble.io">Bubble</a>. My role involves building data models, maintaining dashboards, and interpreting data to support the Success organization. My daily toolkit includes Stitch, dbt, Looker, SQL, and Python.</p>
+            <p>Outside of work, I enjoy listening to music, studying topics about data, and building this website!</p>
+
+            <!-- Social Icons -->
+            <div class="social-icons">
+                <a href="mailto:michaellee1104@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/michaellee1104/" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+            </div>
         </div>
     </section>
 </body>
