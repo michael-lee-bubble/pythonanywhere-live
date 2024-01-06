@@ -48,6 +48,45 @@
             color: #fff;
             font-size: 14px;
         }
+        
+                /* Welcome section style */
+                .welcome-section {
+            padding: 50px;
+            text-align: center;
+            background-color: #f2f2f2;
+        }
+
+        .welcome-section h1 {
+            margin: 0;
+            font-size: 36px;
+            color: #333;
+        }
+
+        .welcome-section p {
+            font-size: 18px;
+            color: #666;
+        }
+
+        /* About me section style */
+        .about-section {
+            padding: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+        }
+
+        .profile-picture {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-right: 30px;
+        }
+
+        .bio {
+            font-size: 18px;
+            color: #333;
+        }
     </style>
 </head>
 
@@ -61,6 +100,21 @@
             <li><a href="https://github.com/michael-lee-bubble/pythonanywhere-live">GitHub</a></li>
         </ul>
     </header>
+    <!-- Welcome Section -->
+    <section class="welcome-section">
+        <h1>Welcome to Michael's Sandbox</h1>
+        <p>This is a space where I explore and showcase my projects in Python and data science. Feel free to browse and discover!</p>
+    </section>
+
+    <!-- About Me Section -->
+    <section class="about-section">
+        <img src="placeholder-profile-pic.jpg" alt="Michael's Profile Picture" class="profile-picture">
+        <div class="bio">
+            <h2>About Me</h2>
+            <p>Hi, I'm Michael. I'm passionate about coding, especially in Python. I love working with data and creating useful applications.</p>
+            <!-- Add more personal info here -->
+        </div>
+    </section>
 </body>
 
 </html>
