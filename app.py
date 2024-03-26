@@ -1,6 +1,7 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, jsonify
 from modules.text_manipulations import lowercase, uppercase
 from modules.math_functions import add, subtract, divide, multiply
+from modules.api_calls import convert_milliseconds
 from dotenv import load_dotenv
 load_dotenv()  # This loads the variables from .env
 import os
@@ -61,6 +62,12 @@ def index():
 def data_library():
     # Add your implementation for the /data_library route here
     return render_template('data_library.html')
+
+@app.route('/convert', methods=['GET'])
+def convert():
+    milliseconds = request.args.get('unix', default=0, type=int)
+    formatted_datetime = convert_milliseconds(milliseconds)
+    return jsonify({'datetime': formatted_datetime})
 
 if __name__ == '__main__':
     app.run(debug=True)
