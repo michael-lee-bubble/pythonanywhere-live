@@ -65,8 +65,13 @@ def data_library():
 
 @app.route('/convert', methods=['GET'])
 def convert():
-    milliseconds = request.args.get('unix_milliseconds', default=0, type=int)
-    formatted_datetime = convert_milliseconds(milliseconds)
+    # Attempt to fetch the 'unix' query parameter as a float.
+    try:
+        unix_timestamp = float(request.args.get('unix', 0))
+    except ValueError:
+        return jsonify({'error': 'Invalid timestamp provided.'}), 400
+
+    formatted_datetime = convert_milliseconds(unix_timestamp)
     return jsonify({'datetime': formatted_datetime})
 
 if __name__ == '__main__':

@@ -1,6 +1,5 @@
 from datetime import datetime, timezone
 
-# Function for converting UNIX timestamp in milliseconds to a datetime string.
 def convert_milliseconds(unix_milliseconds):
     # Convert milliseconds to seconds (including fractional part for milliseconds)
     seconds = unix_milliseconds / 1000.0
