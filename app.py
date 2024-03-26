@@ -65,7 +65,7 @@ def data_library():
 
 @app.route('/convert', methods=['GET'])
 def convert():
-    milliseconds = request.args.get('unix', default=0, type=int)
+    milliseconds = request.args.get('unix_milliseconds', default=0, type=int)
     formatted_datetime = convert_milliseconds(milliseconds)
     return jsonify({'datetime': formatted_datetime})
 
