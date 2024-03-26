@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify
 from modules.text_manipulations import lowercase, uppercase
 from modules.math_functions import add, subtract, divide, multiply
-from modules.api_calls import convert_milliseconds
+from modules.api_calls import convert_seconds
 from dotenv import load_dotenv
 load_dotenv()  # This loads the variables from .env
 import os
@@ -67,11 +67,11 @@ def data_library():
 def convert():
     # Attempt to fetch the 'unix' query parameter as a float.
     try:
-        unix_timestamp = float(request.args.get('unix', 0))
+        unix_timestamp = float(request.args.get('unix_seconds', 0))
     except ValueError:
         return jsonify({'error': 'Invalid timestamp provided.'}), 400
 
-    formatted_datetime = convert_milliseconds(unix_timestamp)
+    formatted_datetime = convert_seconds(unix_timestamp)
     return jsonify({'datetime': formatted_datetime})
 
 if __name__ == '__main__':

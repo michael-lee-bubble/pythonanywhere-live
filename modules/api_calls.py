@@ -1,9 +1,7 @@
 from datetime import datetime, timezone
 
-def convert_milliseconds(unix_milliseconds):
-    # Convert milliseconds to seconds (including fractional part for milliseconds)
-    seconds = unix_milliseconds / 1000.0
-    # Create a timezone-aware datetime object from the timestamp (in UTC)
-    dt = datetime.fromtimestamp(seconds, tz=timezone.utc)
-    # Return the datetime in ISO 8601 format, ensuring milliseconds are included
+# Function for converting UNIX timestamps to datetime values.
+def convert_seconds(unix_seconds):
+    # Ensure the timestamp is treated as seconds (with fractional seconds for millisecond precision)
+    dt = datetime.fromtimestamp(unix_seconds, tz=timezone.utc)
     return dt.isoformat()
