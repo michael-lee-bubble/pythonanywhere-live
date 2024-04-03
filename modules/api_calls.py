@@ -7,34 +7,30 @@ def convert_seconds(unix_seconds):
     return dt.isoformat()
 
 def clean_text(text):
-    # Step 1: Find the first instance of "\n\n>" and remove everything after it
-    cutoff_index_1 = text.find("\n\n>")
-    if cutoff_index_1 != -1:  # If "\n\n>" was found
-        text = text[:cutoff_index_1]
-        
-        # Step 2: From the end, find the first instance of "\n" and remove everything after that
-        # This step only occurs if "\n\n>" was found
-        cutoff_index_2 = text.rfind("\n")
-        if cutoff_index_2 != -1 and cutoff_index_2 != 0:  # Ensure "\n" was found and it's not at the start
-            text = text[:cutoff_index_2]
-            
-            # Find additional text to remove
-            cutoff_index_3 = text.rfind(" Bubble Support - ") # If " Bubble Support - " was found
-            if cutoff_index_3 != -1:
-                text = text[:cutoff_index_3]
+    # Define initial patterns with a tuple indicating the pattern and the method to use: (pattern, method)
+    initial_patterns = [("\n\n>", "find"), ("\n", "rfind"), (" Bubble Support - ", "rfind"), ("\n", "rfind")]
 
-                # Find additional text to remove
-                cutoff_index_4 = text.rfind("\n")
-                if cutoff_index_4 != -1 and cutoff_index_4 != 0:  # Ensure "\n" was found and it's not at the start
-                    text = text[:cutoff_index_4]
+    # Special case patterns with the same structure for consistency
+    special_patterns = [("How was the help you received?\n>", "rfind"), ("\n", "rfind")]
 
-    rating_text_index = text.find("How was the help you received?\n>")
-    if rating_text_index != -1:  # If "How was the help you received?\n>" was found
-        text = text[:rating_text_index]
+    # Function to process patterns with specified method (find or rfind)
+    def process_patterns(text, patterns):
+        for pattern, method in patterns:
+            cutoff_index = text.rfind(pattern) if method == "rfind" else text.find(pattern)
+            if cutoff_index > 0:  # Check if pattern is found and it's not at the very start
+                return text[:cutoff_index], True  # Return truncated text and flag indicating further processing
+        return text, False  # No pattern found or it's at the start; no further processing
 
-        # Find additional text to remove
-        cutoff_index_5 = text.rfind("\n")
-        if cutoff_index_5 != -1 and cutoff_index_5 != 0:
-            text = text[:cutoff_index_5]
+    # Process initial patterns
+    process_further = True
+    while process_further:
+        text, process_further = process_patterns(text, initial_patterns)
+    
+    # Process special case patterns with conditional processing
+    for pattern, method in special_patterns:
+        text, found = process_patterns(text, [(pattern, method)])
+        if not found:
+            # If the first special pattern isn't found, don't continue to the second
+            break
 
     return text
