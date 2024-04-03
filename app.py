@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify
 from modules.text_manipulations import lowercase, uppercase
 from modules.math_functions import add, subtract, divide, multiply
-from modules.api_calls import convert_seconds
+from modules.api_calls import convert_seconds, clean_text
 from dotenv import load_dotenv
 load_dotenv()  # This loads the variables from .env
 import os
@@ -73,6 +73,18 @@ def convert():
 
     formatted_datetime = convert_seconds(unix_timestamp)
     return jsonify({'datetime': formatted_datetime})
+
+@app.route('/clean_text', methods=['GET'])
+def clean_text():
+    #Attempt to clean up the text.
+    try:
+        text = str(request.args.get('text',0))
+
+    except ValueError:
+        return jsonify({'error': 'Invalid text provided.'}), 400
+    
+    clean_text_output = clean_text(text)
+    return jsonify({'message_text': clean_text_output})
 
 if __name__ == '__main__':
     app.run(debug=True)
