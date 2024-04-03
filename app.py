@@ -78,13 +78,13 @@ def convert():
 def clean_text():
     #Attempt to clean up the text.
     try:
-        text = str(request.args.get('text',0))
+        text = request.args.get('text', '')
+        clean_text_output = clean_text(text)
+        return jsonify({'message_text': clean_text_output})
 
     except ValueError:
-        return jsonify({'error': 'Invalid text provided.'}), 400
+        return jsonify({'error': 'Issue with cleaning text. Please try again.'}), 400
     
-    clean_text_output = clean_text(text)
-    return jsonify({'message_text': clean_text_output})
 
 if __name__ == '__main__':
     app.run(debug=True)
