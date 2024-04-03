@@ -74,17 +74,22 @@ def convert():
     formatted_datetime = convert_seconds(unix_timestamp)
     return jsonify({'datetime': formatted_datetime})
 
-@app.route('/clean_text', methods=['GET'])
-def clean_text():
-    #Attempt to clean up the text.
+@app.route('/clean_text', methods=['POST'])
+def process_text():
     try:
-        text = request.args.get('text', '')
+        # Extract text from the JSON body of the request
+        text = request.json.get('text', '')
+
+        # Truncate text to 100,000 characters if it's longer
+        if len(text) > 100000:
+            text = text[:100000]
+
+        # Use the clean_text function to clean the truncated or original text
         clean_text_output = clean_text(text)
         return jsonify({'message_text': clean_text_output})
 
     except ValueError:
-        return jsonify({'error': 'Issue with cleaning text. Please try again.'}), 400
-    
+        return jsonify({'error': 'Invalid request. Please try again.'}), 400
 
 if __name__ == '__main__':
     app.run(debug=True)
