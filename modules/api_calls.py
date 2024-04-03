@@ -34,7 +34,7 @@ def clean_text(text):
 
         # Find additional text to remove
         cutoff_index_5 = text.rfind("\n")
-        if cutoff_index_5 != -1 and cutoff_index_5 != 0
+        if cutoff_index_5 != -1 and cutoff_index_5 != 0:
             text = text[:cutoff_index_5]
 
     return text
