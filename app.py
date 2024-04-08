@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify
 from modules.text_manipulations import lowercase, uppercase
 from modules.math_functions import add, subtract, divide, multiply
-from modules.api_calls import convert_seconds, clean_text
+from modules.api_calls import convert_seconds, clean_text_for_users, clean_text_for_team
 from dotenv import load_dotenv
 load_dotenv()  # This loads the variables from .env
 import os
@@ -74,7 +74,7 @@ def convert():
     formatted_datetime = convert_seconds(unix_timestamp)
     return jsonify({'datetime': formatted_datetime})
 
-@app.route('/clean_text', methods=['POST'])
+@app.route('/clean_text_for_users', methods=['POST'])
 def process_text():
     try:
         # Extract text from the JSON body of the request
@@ -85,9 +85,22 @@ def process_text():
             text = text[:100000]
 
         # Use the clean_text function to clean the truncated or original text
-        clean_text_output = clean_text(text)
+        clean_text_output = clean_text_for_users(text)
         return jsonify({'message_text': clean_text_output})
 
+    except ValueError:
+        return jsonify({'error': 'Invalid request. Please try again.'}), 400
+    
+@app.route('/clean_text_for_team', methods=['POST'])
+def process_text():
+    try:
+        # Extract text from the JSON body of the request
+        text = request.json.get('text', '')
+        
+        # Use the clean_text function to clean the truncated or original text
+        clean_text_output = clean_text_for_team(text)
+        return jsonify({'message_text': clean_text_output})
+    
     except ValueError:
         return jsonify({'error': 'Invalid request. Please try again.'}), 400
 

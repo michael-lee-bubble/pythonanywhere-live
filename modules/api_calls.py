@@ -6,7 +6,7 @@ def convert_seconds(unix_seconds):
     dt = datetime.fromtimestamp(unix_seconds, tz=timezone.utc)
     return dt.isoformat()
 
-def clean_text(text):
+def clean_text_for_users(text):
     # Step 1: Find the first instance of "\n\n>" and remove everything after it
     cutoff_index_1 = text.find("\n\n>")
     if cutoff_index_1 != -1:  # If "\n\n>" was found
@@ -41,5 +41,16 @@ def clean_text(text):
         cutoff_index_7 = text.rfind("\n")
         if cutoff_index_7 != -1 and cutoff_index_7 != 0:
             text = text[:cutoff_index_7]
+
+    return text
+
+def clean_text_for_team(text):
+
+    # 1. Find if string exists in text.
+    index_1 = text.find("</a> <a")
+    if index_1 != -1:
+        
+        # If the string is detected, replace with new string.
+        text = text.replace("</a> <a", "</a> \n<a")
 
     return text
