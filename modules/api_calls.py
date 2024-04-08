@@ -53,4 +53,9 @@ def clean_text_for_team(text):
         # If the string is detected, replace with new string.
         text = text.replace("</a> <a", "</a> \n<a")
 
+        index_2 = text.find("    <a ")
+        if index_2 != -1:
+
+            text = text.replace("    <a ", "    \n<a ")
+
     return text
