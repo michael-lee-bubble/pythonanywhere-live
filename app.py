@@ -75,7 +75,7 @@ def convert():
     return jsonify({'datetime': formatted_datetime})
 
 @app.route('/clean_text_for_users', methods=['POST'])
-def process_text():
+def process_text_for_users():
     try:
         # Extract text from the JSON body of the request
         text = request.json.get('text', '')
@@ -92,7 +92,7 @@ def process_text():
         return jsonify({'error': 'Invalid request. Please try again.'}), 400
     
 @app.route('/clean_text_for_team', methods=['POST'])
-def process_text():
+def process_text_for_team():
     try:
         # Extract text from the JSON body of the request
         text = request.json.get('text', '')
