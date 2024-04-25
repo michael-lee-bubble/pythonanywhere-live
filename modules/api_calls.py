@@ -43,14 +43,19 @@ def clean_text_for_users(text):
                             if cutoff_index_7 != -1 and cutoff_index_7 != 0:  # Ensure "\n" was found and it's not at the start
                                 text = text[:cutoff_index_7]
 
-    cutoff_index_8 = text.find("How was the help you received?")
-    if cutoff_index_8 != -1:  # If "How was the help you received?\n>" was found
-        text = text[:cutoff_index_8]
+                                # Find additional text to remove
+                                cutoff_index_8 = text.find("________________________________")
+                                if cutoff_index_8 != -1 and cutoff_index_8 != 0:  # Ensure "\n" was found and it's not at the start
+                                    text = text[:cutoff_index_8]
+
+    cutoff_index_9 = text.find("How was the help you received?")
+    if cutoff_index_9 != -1:  # If "How was the help you received?\n>" was found
+        text = text[:cutoff_index_9]
 
         # Find additional text to remove
-        cutoff_index_9 = text.rfind("\n")
-        if cutoff_index_9 != -1 and cutoff_index_9 != 0:
-            text = text[:cutoff_index_9]
+        cutoff_index_10 = text.rfind("\n")
+        if cutoff_index_10 != -1 and cutoff_index_10 != 0:
+            text = text[:cutoff_index_10]
 
     return text
 
