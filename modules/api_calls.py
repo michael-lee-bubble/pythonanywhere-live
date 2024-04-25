@@ -62,13 +62,13 @@ def clean_text_for_users(text):
         if cutoff_index_11 != -1 and cutoff_index_11 != 0:
             text = text[:cutoff_index_11]
     
-    cutoff_index_11 = text.find(", Bubble Support - ")
-    if cutoff_index_11 != -1: 
-        text = text[:cutoff_index_11]
-    
-    cutoff_index_12 = text.find(", Rachel from Bubble")
+    cutoff_index_12 = text.find(", Bubble Support - ")
     if cutoff_index_12 != -1: 
         text = text[:cutoff_index_12]
+    
+    cutoff_index_13 = text.find(", Rachel from Bubble")
+    if cutoff_index_13 != -1: 
+        text = text[:cutoff_index_13]
 
     return text
 
