@@ -45,12 +45,12 @@ def clean_text_for_users(text):
 
     # Find additional text to remove
     cutoff_index_8 = text.find("________________________________")
-    if cutoff_index_8 != -1 and cutoff_index_8 != 0:  # Ensure "\n" was found and it's not at the start
+    if cutoff_index_8 != -1 and cutoff_index_8 != 0:  
         text = text[:cutoff_index_8]
 
     # Find additional text to remove
     cutoff_index_9 = text.find("Rachel from Bubble <")
-    if cutoff_index_9 != -1 and cutoff_index_9 != 0:  # Ensure "\n" was found and it's not at the start
+    if cutoff_index_9 != -1 and cutoff_index_9 != 0:  
         text = text[:cutoff_index_9]
 
     cutoff_index_10 = text.find("How was the help you received?")
