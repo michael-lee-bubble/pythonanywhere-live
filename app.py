@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, session, j
 from modules.text_manipulations import lowercase, uppercase
 from modules.math_functions import add, subtract, divide, multiply
 from modules.api_calls import convert_seconds, clean_text_for_users, clean_text_for_team
+from modules.email_validation import is_valid_email
 from dotenv import load_dotenv
 load_dotenv()  # This loads the variables from .env
 import os
@@ -103,6 +104,19 @@ def process_text_for_team():
     
     except ValueError:
         return jsonify({'error': 'Invalid request. Please try again.'}), 400
+    
+@app.route('/email_validation', methods=['POST'])
+def check_email():
+    data = request.get_json()
+    email = data.get('email', '')
+    
+    if not email:
+        return jsonify({"error": "No email provided"}), 400
+    
+    if is_valid_email(email):
+        return jsonify({"is_valid": True})
+    else:
+        return jsonify({"is_valid": False})
 
 if __name__ == '__main__':
     app.run(debug=True)
